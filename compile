@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#c++ -Wall -I ./include/ -o main src/*.cc
+
+export WORKDIR=/home/michele/Scrivania/genHandler
+
+c++ -Wall -I. -I/${WORKDIR}/include -o main src/*.cc 
