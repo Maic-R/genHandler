@@ -1,7 +1,6 @@
 #include "GenomeReader.h"
 
 GenomeReader::GenomeReader(){
-
 }
 
 GenomeReader::GenomeReader(const std::string& name, fst::FastaType type):
@@ -9,7 +8,6 @@ FastaReader::FastaReader(name,type){
 }
 
 GenomeReader::~GenomeReader(){
-
 }
 
 void GenomeReader::Read() {
@@ -28,22 +26,10 @@ void GenomeReader::Read() {
                 getline(m_is,seq,m_delimiter);
                 m_is.unget();
             }
-            m_mGI.insert( std::make_pair(seqID,seq) );
+            m_mFI.insert( std::make_pair(seqID,seq) );
         }
         else continue;
     }
     
     return;
-}
-
-bool GenomeReader::contains(const std::string& seqID) const{
-    //loop over all the sequences
-	for(auto it : m_mGI){
-		if(it.first == seqID) return true; 
-	}
-    return false;
-}
-
-const std::map<const std::string, const std::string>& GenomeReader::getMap() const{
-    return m_mGI;
 }

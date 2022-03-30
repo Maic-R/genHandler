@@ -4,12 +4,13 @@
 #include <string>
 #include <map>
 #include <fstream>
+#include <variant>
 
 #include "FastaEnums.h"
 
 class FastaReader{
 
-public:
+public: 
 
     FastaReader();
     //constructors with parameeters: name of the file to open and file type (single or multiple)
@@ -27,10 +28,9 @@ public:
     //returns the name of the opened fasta file
     const std::string& GetFileName() const;
 
-    virtual bool contains(const std::string& seqID) const = 0;
+    bool contains(const std::string& seqID) const;
 
-    template<typename T>
-    const std::map<const std::string, const T>& getMap() const;
+    const fst::FastaMap& getMap() const;
 
     //given the sequence name returns the corresponding sequence
     //const string& GetSequence(const string& seqName) const;
@@ -45,7 +45,8 @@ protected:
     char m_delimiter; 
 
     bool m_isOpen;
-    std::ifstream m_is;  
+    std::ifstream m_is;
+    fst::FastaMap m_mFI;  
 
     static std::string m_defaultString;
     static char m_seqStart;

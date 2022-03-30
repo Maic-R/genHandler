@@ -4,4 +4,4 @@
 
 export WORKDIR=/home/michele/Scrivania/genHandler
 
-c++ -Wall -I. -I/${WORKDIR}/include -o main src/*.cc 
+c++ -Wall -std=c++17 -I. -I/${WORKDIR}/include -o main src/*.cc 
