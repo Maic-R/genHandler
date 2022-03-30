@@ -16,6 +16,15 @@ namespace fst{
         CDS,
         GFF
     };
+
+    struct genInfo{
+        std::string seqID;
+        std::string seq;
+        unsigned int i;
+
+    };
+
+    typedef std::map<const std::string, std::variant<std::string, fst::genInfo> > FastaMap;
 }
 
 #endif

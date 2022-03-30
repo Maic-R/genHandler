@@ -52,3 +52,12 @@ void FastaReader::Close(){
 
 const std::string& FastaReader::GetFileName() const {return m_name;}
 
+bool FastaReader::contains(const std::string& seqID) const{
+    //loop over all the sequences
+	for(auto it : m_mFI){
+		if(it.first == seqID) return true; 
+	}
+    return false;
+}
+
+const fst::FastaMap& FastaReader::getMap() const {return m_mFI;}

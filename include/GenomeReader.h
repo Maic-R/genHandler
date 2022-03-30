@@ -15,14 +15,7 @@ public:
 
     void Read() override;
 
-    bool contains(const std::string& seqID) const override;
-
-    const std::map<const std::string, const std::string>& getMap() const;
-
 private:
-
-    //seqID stored without '>'
-    std::map<const std::string, const std::string> m_mGI;
 
 };
 
